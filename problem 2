@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    double lg=530e-9, ag=65.0, lr=700e-9;
+    int mg=3, mr=2;
+    double d, r, x;
+
+    r = ag * M_PI/180.0;
+    d = (mg*lg)/sin(r);
+
+    x = (mr*lr)/d;
+
+    if(x>1){
+        printf("2nd order red light is not possible \n");
+    } else {
+        double a = asin(x)*180.0/M_PI;
+        printf("2nd order bright spot angle for red : %.2f degree\n", a);
+    }
+
+    return 0;
+}
