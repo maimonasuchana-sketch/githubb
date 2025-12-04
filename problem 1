@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    double w,m,a1,a2,a3,t1,t2,t3;
+
+    printf("wavelength: ");
+    scanf("%lf",&w);
+
+    if(w<380||w>750){
+        printf(" enter a valid number\n");
+        return 0;
+    }
+
+    printf("m: ");
+    scanf("%lf",&m);
+
+    printf("slit 1: ");
+    scanf("%lf",&a1);
+    printf("slit 2: ");
+    scanf("%lf",&a2);
+    printf("slit 3: ");
+    scanf("%lf",&a3);
+
+    t1=asin(m*(w*1e-9)/(a1*1e-6))*180/M_PI;
+    t2=asin(m*(w*1e-9)/(a2*1e-6))*180/M_PI;
+    t3=asin(m*(w*1e-9)/(a3*1e-6))*180/M_PI;
+
+    printf("Angles\n");
+    printf("Theta for slit 1: %.4f\n",t1);
+    printf("Theta for slit 2: %.4f\n",t2);
+    printf("Theta for slit 3: %.4f\n",t3);
+
+    if(t1>t2&&t1>t3) printf("slit 1 bent light most\n");
+    else if(t2>t1&&t2>t3) printf("slit 2 bent light most\n");
+    else if(t3>t1&&t3>t2) printf("slit 3 bent light most\n");
+    else printf("same\n");
+
+    return 0;
+}
